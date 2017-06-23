@@ -1,0 +1,25 @@
+body{
+  font-family: Century Gothic;
+  background-image: url(https://octodex.github.com/images/twenty-percent-cooler-octocat.png);
+  background-size: 200px;
+}
+
+h1, h2, header, footer {
+  text-align: center;
+}
+
+.column-1{
+  display: inline-block;
+  background: lightgray;
+  width: 48%;
+  vertical-align: top;
+  padding: 5px;
+}
+
+.column-2{
+  display: inline-block;
+  background: yellow;
+  width: 48%;
+  vertical-align: top;
+  padding: 5px;
+}
