@@ -1,0 +1,14 @@
+Write the algorithm for using an elevator. Remember, robots are not smart at all, so you'll have to spell everything out.
+ 
+Find the numbered buttons in the elevator. Look at the one on the bottom row on the left. 
+If the number or marking on the button matches the floor assigned, press button.
+If not, look at the button to the right to see if matches the floor assigned.
+When there are no more buttons in the row, look at the left-most button on the second row up and repeat step above until the number matches the assigned floor.
+ 
+Come up with an example of a common task in your life that could be translated into an algorithm, and write out the steps, labelled with the name of the task.
+ 
+Finding room on the subway in morning rushhour. 
+ 
+Starting at the very first door, look inside. If there is space for you in there, then enter.
+If there is not enough space for you, move on to the next door and look inside to see if there is space for you there.
+If the doors close before space is found, return to the front of the platform and start again when the next train arrives. 
