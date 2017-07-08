@@ -35,7 +35,14 @@ find_supply("water jug")
 # leaving only 5, using #each.
 # ----
 
+$zombie_apocalypse_supplies.each do |supply|
+   i = $zombie_apocalypse_supplies.index(supply)
+    if i = 5
+    $zombie_apocalypse_supplies.delete_at(i)
+  end
+end
 
+p $zombie_apocalypse_supplies
 
 # 4. You found another survivor! This means you can combine your supplies.
 # Create a new combined supplies list out of your zombie_apocalypse_supplies
