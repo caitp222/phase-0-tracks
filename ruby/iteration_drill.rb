@@ -1,21 +1,41 @@
 # Array Drills
 
-zombie_apocalypse_supplies = ["hatchet", "rations", "water jug", "binoculars",
+$zombie_apocalypse_supplies = ["hatchet", "rations", "water jug", "binoculars",
                               "shotgun", "compass", "CB radio", "batteries"]
 
 # 1. Iterate through the zombie_apocalypse_supplies array using #each,
 # printing each item in the array separated by an asterisk
 # ----
 
+# This will return the items each on a separate line:
+$zombie_apocalypse_supplies.each do |supply|
+  p supply+"*"
+end
+
+# This returns the items in one line separated by an asterisk
+p $zombie_apocalypse_supplies.join("*")
+
 # 2. Create a method to see if a particular item (string) is in the
 # zombie_apocalypse_supplies using #each.
 # For instance: are boots in your list of supplies?
 # ----
 
+def find_supply(supply)
+  if $zombie_apocalypse_supplies.include?(supply) == true
+    p "#{supply} is in the Zombie supplies array."
+  else p "#{supply} is not in the Zombie supplies array."
+  end
+end
+
+find_supply("boots")
+find_supply("water jug")
+
 # 3. You can't carry too many things, you've only got room in your pack for 5.
 # Remove items in your zombie_apocalypse_supplies in any way you'd like,
 # leaving only 5, using #each.
 # ----
+
+
 
 # 4. You found another survivor! This means you can combine your supplies.
 # Create a new combined supplies list out of your zombie_apocalypse_supplies
