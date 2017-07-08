@@ -53,6 +53,18 @@ other_survivor_supplies = [ "warm clothes", "rations", "compass", "camp stove",
                             "solar battery", "flashlight"]
 # ----
 
+$zombie_apocalypse_supplies.push("solar battery")
+
+other_survivor_supplies.each do |supply|
+  $zombie_apocalypse_supplies.push(supply)
+end
+
+p $zombie_apocalypse_supplies
+
+$zombie_apocalypse_supplies.uniq!
+
+p $zombie_apocalypse_supplies
+
 # Hash Drills
 
 extinct_animals = {
