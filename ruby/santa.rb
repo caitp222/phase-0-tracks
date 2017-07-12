@@ -95,16 +95,18 @@ p santas[4].ethnicity
 #use random method to select an index to use on the gender and ethnicity arrays to select parameters for the initialize method
 #adjust initialize method to set the age as a random number between 0 and 140
 
-example_genders = ["agender", "female", "bigender", "male", "female", "gender fluid", "N/A", "female", "gender non-conforming", "intersex", "male", "more than one", "none"]
-example_ethnicities = ["black", "Latino", "white", "Japanese-African", "prefer not to say", "Mystical Creature (unicorn)", "N/A", "elf", "dwarf", "orc", "human", "none", "all"]
+$example_genders = ["agender", "female", "bigender", "male", "female", "gender fluid", "N/A", "female", "gender non-conforming", "intersex", "male", "more than one", "none"]
+$example_ethnicities = ["black", "Latino", "white", "Japanese-African", "prefer not to say", "Mystical Creature (unicorn)", "N/A", "elf", "dwarf", "orc", "human", "none", "all"]
 
 def santa_generator(n)
   n.times do
-    gender_i = rand(0...example_genders.length)
-    ethnicity_i = rand(0...example_ethnicities.length)
-    santa = Santa.new(example_genders[gender_i], example_ethnicities[ethnicity_i])
+    gender_i = rand(0...$example_genders.length)
+    ethnicity_i = rand(0...$example_ethnicities.length)
+    santa = Santa.new($example_genders[gender_i], $example_ethnicities[ethnicity_i])
     p santa.age
     p santa.gender
     p santa.ethnicity
   end
 end
+
+santa_generator(100)
