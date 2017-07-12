@@ -8,7 +8,7 @@ class Santa
     @gender = gender
     @ethnicity = ethnicity
     @reindeer_ranking = ["Rudolph", "Dasher", "Dancer", "Prancer", "Vixen", "Comet", "Cupid", "Donner", "Blitzen"]
-    @age = 0
+    @age = rand(0..140)
   end
 
   def speak
@@ -86,4 +86,25 @@ p santas[3].gender
 
 p santas[4].ethnicity
 
+#BUILD MANY SANTAS
 
+#expand available genders and ethnicities in array
+#generate lots of santas
+#definite a method that takes an integer as a parameter to generate that number of santas
+#within method, use n.times do to generate the santas
+#use random method to select an index to use on the gender and ethnicity arrays to select parameters for the initialize method
+#adjust initialize method to set the age as a random number between 0 and 140
+
+example_genders = ["agender", "female", "bigender", "male", "female", "gender fluid", "N/A", "female", "gender non-conforming", "intersex", "male", "more than one", "none"]
+example_ethnicities = ["black", "Latino", "white", "Japanese-African", "prefer not to say", "Mystical Creature (unicorn)", "N/A", "elf", "dwarf", "orc", "human", "none", "all"]
+
+def santa_generator(n)
+  n.times do
+    gender_i = rand(0...example_genders.length)
+    ethnicity_i = rand(0...example_ethnicities.length)
+    santa = Santa.new(example_genders[gender_i], example_ethnicities[ethnicity_i])
+    p santa.age
+    p santa.gender
+    p santa.ethnicity
+  end
+end
