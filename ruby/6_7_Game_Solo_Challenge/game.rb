@@ -19,8 +19,7 @@ class Guessword
   end
 
   def guesscount(word)
-    @wordlength = word
-    @wordlength.length + 5
+    word.length + 5
   end
 
   def guess_array(word)
