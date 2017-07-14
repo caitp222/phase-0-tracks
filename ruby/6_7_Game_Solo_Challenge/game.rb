@@ -19,13 +19,12 @@ class Guessword
   end
 
   def guesscount(word)
-    @word = word
-    @word.length + 5
+    @wordlength = word
+    @wordlength.length + 5
   end
 
   def guess_array(word)
-    @word = word
-    i = @word.length
+    i = word.length
     @guess_array = []
     i.times do
       @guess_array << "-"
