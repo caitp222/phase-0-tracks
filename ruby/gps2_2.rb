@@ -78,3 +78,18 @@ remove_item(grocery, "lemonade")
 update_quantity(grocery, "ice_cream", 1)
 
 print_list(grocery)
+
+# REFELCTION
+
+# What did you learn about pseudocode from working on this challenge?
+    # It really helps!! From this challenge and the solo challenge I've learned that working through a challenge first with pseudocode clarifies the aims of the code in my mind and that helps me more easily realize what is the most appropriate method(s) to use
+# What are the tradeoffs of using arrays and hashes for this challenge?
+    # I don't really see how arrays would be useful for creating the shopping list itself as it needs items and assigned quantities. We used an array only for initially breaking down a string and for iterating over the words within that string.
+# What does a method return?
+    # Whatever you tell it to return in the last line. The pseudocode helped us figure out what type of item our return value should be, which was really useful in writing the code.
+# What kind of things can you pass into methods as arguments?
+    # We used arrays, hashes, strings and integers
+# How can you pass information between methods?
+    # Declaring a variable that is the outcome of method 1, and passing it into method 2. You can also use global variables but you shouldn't unless absolutely necessary.
+# What concepts were solidified in this challenge, and what concepts are still confusing?
+    # Don't use global variables, and how to get around using them. The ideas of iteration and working with hashes were solidified for me. I also got some more practice using the Ruby documentation while I'm working, which was really useful.
