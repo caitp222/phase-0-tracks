@@ -10,7 +10,7 @@ describe do
   let (:guessword) {Guessword.new("hello")}
 
   it "should return guesscount of word length + 5" do
-    expect(guessword.guesscount("hello")).to eq 10
+    expect(guessword.guesscount).to eq 10
   end
 
   it "should return array of dashes" do
