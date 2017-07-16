@@ -56,6 +56,7 @@ guess_counter = game_word.guess_count
 
 user_guesses = []
 puts "Now, let your friend guess letters in the word! Warning: guesses are limited!"
+
     until guess_counter == 0 || !game_word.guessed_array.include?("-")
       letter = gets.chomp
         if user_guesses.include?(letter)
@@ -72,6 +73,7 @@ puts "Now, let your friend guess letters in the word! Warning: guesses are limit
           puts "#{guess_counter} guesses remaining!"
         end
     end
+
     if guess_counter == 0
         puts "You've run out of guesses, you suck!"
     elsif !game_word.guessed_array.include?("-")

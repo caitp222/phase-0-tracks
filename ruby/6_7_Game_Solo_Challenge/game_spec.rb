@@ -18,6 +18,7 @@ describe do
   end
 
   it "should return array with guessed letter inserted" do
+    guessword.guess_array
     expect(guessword.compare("h")).to eq ["h","-","-","-","-"]
   end
 
