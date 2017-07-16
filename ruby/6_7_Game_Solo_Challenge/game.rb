@@ -7,13 +7,15 @@
 # Define a compare method [parameter: string, return value: array] that takes user2's letter and loops over array1 to find index value of matches. Inserts those values into array2 at matching indexes.
 # Set array2 variable to be the array returned by compare method
 # Loop until guesscount is 0 or there are no instances of "-" in Array2
+    #Add each guess to an array, and use a conditional that only adds to the guesscount if the new guess is not already in the array
 # Using conditionals, If guesscount reaches 0, display sarcastic message
 # Elsif, Array2 has no instances of "-", display congratulatory message
 
 # GAME CLASS
 
 class Guessword
-  attr_reader :guessword_array, :guess_array
+  attr_reader :guessword_array
+  attr_accessor :guess_array
 
   def initialize(word)
     @guessword_array = word.chars
@@ -39,19 +41,9 @@ class Guessword
           end
           i += 1
         end
-
-      return @guess_array
+    p @guess_array
+    return @guess_array
   end
-
-  # def compare(letter)
-  #       @guessword_array.each do |char|
-  #         if char == letter
-  #           i = @guessword_array.index(char)
-  #           @guess_array[i] = letter
-  #         end
-  #       end
-  #   @guess_array
-  # end
 
 end
 
@@ -64,20 +56,30 @@ end
 
 puts "Hello! Please enter a word for your friend to guess!"
 game_word = Guessword.new(gets.chomp)
+  p game_word
 game_word.guess_array
-p game_word
-p game_word.guess_array
+  p game_word.guess_array
 guess_counter = game_word.guess_count
-p guess_counter
-
-puts "Now, let your friend guess letters in the word! Warning: guesses are limited!"
-  letter = gets.chomp
-
-    if !game_word.guessword_array.include?(letter)
-      puts "That letter's not in the word! Guess again."
-    elsif p game_word.compare(letter)
-    end
-
-  guess_counter -= 1
   p guess_counter
+
+user_guesses = []
+puts "Now, let your friend guess letters in the word! Warning: guesses are limited!"
+    until guess_counter == 0 || !game_word.guess_array.include?("-")
+      letter = gets.chomp
+        if user_guesses.include?(letter)
+          puts "You've already guessed that letter!"
+        elsif !game_word.guessword_array.include?(letter)
+          puts "That letter's not in the word! Guess again."
+          user_guesses << letter
+          p user_guesses
+          guess_counter -= 1
+        elsif  game_word.guessword_array.include?(letter)
+          p game_word.guess_array
+          game_word.compare(letter)
+          p game_word.guess_array
+          user_guesses << letter
+          guess_counter -= 1
+          puts "#{guess_counter} guesses remaining!"
+        end
+    end
 
