@@ -17,8 +17,9 @@ describe do
     expect(guessword.guess_array).to eq ["-","-","-","-","-"]
   end
 
-  it "should inset guessed letter in guess_array" do
-    expect(guessword.compare("l")).to eq ["-","-","l","l","-"]
+  it "should return array with guessed letter inserted" do
+    guessword.guess_array
+    expect(guessword.compare("h")).to eq ["h","-","-","-","-"]
   end
 
 end
