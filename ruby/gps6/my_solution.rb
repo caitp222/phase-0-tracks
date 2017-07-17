@@ -7,15 +7,18 @@
 #
 #
 require_relative 'state_data'
+# The program needs another file within the same folder in order to perform the methods below. Require is used for libraries, whereas require_relative is for an individual file.
 
 class VirusPredictor
 
+# Creating a new instance of VirusPreditor with three attributes
   def initialize(state_of_origin, population_density, population)
     @state = state_of_origin
     @population = population
     @population_density = population_density
   end
 
+# Runs both of the private methods listed below
   def virus_effects
     predicted_deaths(@population_density, @population, @state)
     speed_of_spread(@population_density, @state)
@@ -23,6 +26,7 @@ class VirusPredictor
 
   private
 
+# Based on population density, it calculates how many people will die, and rounds down to an integer, and then prints result
   def predicted_deaths(population_density, population, state)
     # predicted deaths is solely based on population density
     if @population_density >= 200
@@ -41,6 +45,7 @@ class VirusPredictor
 
   end
 
+# Based on population density, speed variable is manipulated, and a result is printed
   def speed_of_spread(population_density, state) #in months
     # We are still perfecting our formula here. The speed is also affected
     # by additional factors we haven't added into this functionality.
