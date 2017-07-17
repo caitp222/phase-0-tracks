@@ -20,14 +20,15 @@ class VirusPredictor
 
 # Runs both of the private methods listed below
   def virus_effects
-    predicted_deaths(@population_density, @population, @state)
-    speed_of_spread(@population_density, @state)
+    predicted_deaths
+    speed_of_spread
   end
 
   private
 
 # Based on population density, it calculates how many people will die, and rounds down to an integer, and then prints result
-  def predicted_deaths(population_density, population, state)
+  def predicted_deaths
+
     # predicted deaths is solely based on population density
     if @population_density >= 200
       number_of_deaths = (@population * 0.4).floor
@@ -46,7 +47,7 @@ class VirusPredictor
   end
 
 # Based on population density, speed variable is manipulated, and a result is printed
-  def speed_of_spread(population_density, state) #in months
+def speed_of_spread #in months
     # We are still perfecting our formula here. The speed is also affected
     # by additional factors we haven't added into this functionality.
     speed = 0.0
@@ -94,6 +95,9 @@ STATE_DATA.each { |key, value|
   state = VirusPredictor.new(key, STATE_DATA[key][:population_density], STATE_DATA[key][:population])
   state.virus_effects
 }
+
+# RELEASE 5
+# Remove state as an input variable on three methods
 
 
 #=======================================================================
