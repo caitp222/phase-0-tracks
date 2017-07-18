@@ -19,6 +19,8 @@ class VirusPredictor
   end
 
 # Runs both of the private methods listed below
+        # RELEASE 5
+        # Remove state as an input variable on three methods
   def virus_effects
     predicted_deaths
     speed_of_spread
@@ -26,6 +28,8 @@ class VirusPredictor
   end
 
   private
+
+# Write a method that
 
 # Based on population density, it calculates how many people will die, and rounds down to an integer, and then prints result
   def predicted_deaths
@@ -96,11 +100,29 @@ STATE_DATA.each { |key, value|
   state.virus_effects
 }
 
-# RELEASE 5
-# Remove state as an input variable on three methods
 
 
 
 
 #=======================================================================
 # Reflection Section
+
+# What are the differences between the two different hash syntaxes shown in the state_data file?
+    # One uses strings as keys, and the other uses symbols as keys
+    # The strings are used as that key is to be printed
+    # later on, and should be human-readable. The symbols are
+    # just to identify values in the code
+# What does require_relative do? How is it different from require?
+    # Require_relative allows you to load a file that is in
+    # the same directory. Require is for external directories
+# What are some ways to iterate through a hash?
+    # We used #each and then put in key as a block parameter.
+    # You can also use #each_key, #each_value, and #each_pair
+# When refactoring virus_effects, what stood out to you about the variables, if anything?
+    #The input variables were all instance variables
+    # and as instance variables are accessible by all methods
+    # within a class, they didn't need to be put in as parameters
+# What concept did you most solidify in this challenge?
+    # How to iterate through a hash, and the fact that instance
+    # variables are accessible anywhere within a class, thus
+    # no need to pass them into parameters.
