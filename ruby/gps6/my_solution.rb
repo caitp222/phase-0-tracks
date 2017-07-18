@@ -22,6 +22,7 @@ class VirusPredictor
   def virus_effects
     predicted_deaths
     speed_of_spread
+    print "#{@state} will lose #{predicted_deaths} people in this outbreak and will spread across the state in #{speed_of_spread} months.\n\n"
   end
 
   private
@@ -30,6 +31,9 @@ class VirusPredictor
   def predicted_deaths
 
     # predicted deaths is solely based on population density
+
+    # Write a method that takes population_density and based on that number, provides a different output for each grade
+
     if @population_density >= 200
       number_of_deaths = (@population * 0.4).floor
     elsif @population_density >= 150
@@ -41,8 +45,6 @@ class VirusPredictor
     else
       number_of_deaths = (@population * 0.05).floor
     end
-
-    print "#{@state} will lose #{number_of_deaths} people in this outbreak"
 
   end
 
@@ -63,8 +65,6 @@ def speed_of_spread #in months
     else
       speed += 2.5
     end
-
-    puts " and will spread across the state in #{speed} months.\n\n"
 
   end
 
@@ -98,6 +98,8 @@ STATE_DATA.each { |key, value|
 
 # RELEASE 5
 # Remove state as an input variable on three methods
+
+
 
 
 #=======================================================================
