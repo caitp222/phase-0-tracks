@@ -13,10 +13,12 @@ function find_longest_phrase(arr) {
 }
 
 // Compare key value pairs in two objects
+  // I couldn't find a short way of doing this that didn't involve
+  // built-in fancy methods found on Google
 // Write a function that takes two parameters
-// Find matching key values using object.keys
-// Assign a variable to that key and check to see if their properties also match
-// Return true if so, else return false
+// Find matching key values by creating two arrays of keys, then iterating over them looking for matches, then pushing matches to new array
+// Loop over items in new array, seeing if the values of those keys are the same in each object, add matching values to another new array
+// Return true if the new array has any items in it, else return false
 
 function compare_objects(obj1, obj2) {
   var obj1_keys = Object.keys(obj1)
@@ -46,24 +48,29 @@ function compare_objects(obj1, obj2) {
 
 
 // Generate Random Test Data
-// Create function with an integer for its parameter
-// Write a for statement that performs the following that number of times
-// Within function, generate a random number and store it in a variable
-// Generate a string of random length (between 1 and 10 characters)
+// Create function
+  // Input: integer (num)
+  // Output: array of strings
+// Create a random number (x) between 1 and 10
+// Declare a variable that is the alphabet
+// Create a string made of x amount of letters selected at random from the alphabet
+// Do this num times
 
-// function random_test_data(num) {
-//   var random_array = []
-//   var characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
-//   for
-//   var i = Math.floor(Math.random() * characters.length) + 1
-// //random_array.push
-// console.log(characters[i])
+function random_test_data(num) {
+  var test_data = []
+  for (var z = 0; z < num; z++) {
+    var random_string = []
+    x = Math.floor((Math.random() * 10) + 1);
+      for (var i = 0; i < x; i++) {
+        var alphabet = "abcdefghijklmnopqrstuvwxyz";
+        y = Math.floor((Math.random() * alphabet.length) + 1);
+        random_string.push(alphabet[y]);
+      }
+    test_data.push(random_string.join(""));
+  }
+  return test_data
+}
 
-//   // Math.random() * characters.length])
-// return random_array
-// }
-
-// console.log(random_test_data())
 
 
 
@@ -78,3 +85,12 @@ console.log(find_longest_phrase(berries))
 
 console.log(compare_objects({name: "Steven", age: 53}, {name: "Tamir", age: 54}));
 console.log(compare_objects({animal: "Dog", legs: 4}, {animal: "Dog", legs: 3}));
+
+var test1 = random_test_data(4);
+console.log(test1);
+console.log(find_longest_phrase(test1));
+
+var test2 = random_test_data(10);
+console.log(find_longest_phrase(test2));
+
+console.log(random_test_data(7));
