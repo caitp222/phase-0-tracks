@@ -11,11 +11,20 @@ console.log(names)
 
 var horse_colors = {};
 
-for (var i = 0; i <= colors.length; i++) {
+for (var i = 0; i < colors.length; i++) {
   horse_colors[(names[i])] = colors[i];
 }
 
 console.log(horse_colors)
+
+// Two ways of looping through an object
+
+for (var key in horse_colors) {
+  console.log(key);
+}
+
+console.log(Object.values(horse_colors));
+
 
 // Constructor function for a car
 
