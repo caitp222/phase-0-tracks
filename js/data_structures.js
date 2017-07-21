@@ -16,3 +16,22 @@ for (var i = 0; i <= colors.length; i++) {
 }
 
 console.log(horse_colors)
+
+// Constructor function for a car
+
+function Car(color, year, model) {
+  this.color = color;
+  this.year = year;
+  this.model = model;
+  this.engine = function() {console.log("Vrooom Vroom!!");};
+  console.log("New car is ready.");
+}
+
+var myCar = new Car("blue", 2017, "Toyota");
+console.log(myCar.color);
+myCar.engine();
+console.log(myCar);
+
+var yourCar = new Car("grafitte", 1985, "Ford");
+console.log(yourCar.year);
+yourCar.engine();
