@@ -1,0 +1,10 @@
+sqlite> SELECT * FROM reviews JOIN businesses ON reviews.business_id = businesses.id JOIN users ON reviews.user_id = users.id;
+1|5|Great food!|1|2|1|Grundy Hollow Wedding Chapel|2|Mandy|Kaling
+2|2|Didn't like it!|3|1|3|The Beagle Nightclub|1|Bradford|Pitt
+
+sqlite> SELECT users.first_name, users.last_name, businesses.name, reviews.stars, reviews.comment FROM reviews JOIN businesses ON reviews.business_id = businesses.id JOIN users ON reviews.user_id = users.id;
+Mandy|Kaling|Grundy Hollow Wedding Chapel|5|Great food!
+Bradford|Pitt|The Beagle Nightclub|2|Didn't like it!
+
+sqlite> SELECT users.first_name, users.last_name, businesses.name, reviews.stars, reviews.comment FROM reviews JOIN businesses ON reviews.business_id = businesses.id JOIN users ON reviews.user_id = users.id WHERE businesses.name = "Grundy Hollow Wedding Chapel";
+Mandy|Kaling|Grundy Hollow Wedding Chapel|5|Great food!
