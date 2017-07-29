@@ -1,0 +1,99 @@
+RELEASE 2
+
+1)
+
+sqlite> SELECT * FROM users;
+1|Jennifer|Gray|32|false|4
+2|Bob|Green|29|true|1
+3|William|Yellow|35|true|5
+4|Tiffany|Brown|34|true|5
+5|Alasdair|Purple|34|false|2
+6|Charlotte|Magenta|38|false|3
+
+2)
+
+sqlite> UPDATE users SET looking_for_love = "true" WHERE first_name="Charlotte"; 
+sqlite> SELECT * FROM users;                                                    
+1|Jennifer|Gray|32|false|4
+2|Bob|Green|29|true|1
+3|William|Yellow|35|true|5
+4|Tiffany|Brown|34|true|5
+5|Alasdair|Purple|34|false|2
+6|Charlotte|Magenta|38|true|3
+
+3) 
+
+sqlite> SELECT * FROM users, interests WHERE users.interests_id = interests.id;
+1|Jennifer|Gray|32|false|4|4|Theater
+2|Bob|Green|29|true|1|1|Dancing
+3|William|Yellow|35|true|5|5|Long walks
+4|Tiffany|Brown|34|true|5|5|Long walks
+5|Alasdair|Purple|34|false|2|2|Concerts
+6|Charlotte|Magenta|38|true|3|3|Cooking
+
+4)
+
+sqlite> SELECT users.first_name, users.last_name, age, looking_for_love, interests.interest FROM users JOIN interests ON users.interests_id = interests.id;
+Jennifer|Gray|32|false|Theater
+Bob|Green|29|true|Dancing
+William|Yellow|35|true|Long walks
+Tiffany|Brown|34|true|Long walks
+Alasdair|Purple|34|false|Concerts
+Charlotte|Magenta|38|true|Cooking
+
+5)
+
+sqlite> DELETE FROM users WHERE looking_for_love="false";
+sqlite> SELECT * FROM users;
+2|Bob|Green|29|true|1
+3|William|Yellow|35|true|5
+4|Tiffany|Brown|34|true|5
+6|Charlotte|Magenta|38|true|3
+
+
+RELEASE 3
+
+sqlite> SELECT * FROM users CROSS JOIN interests;
+2|Bob|Green|29|true|1|1|Dancing
+2|Bob|Green|29|true|1|2|Concerts
+2|Bob|Green|29|true|1|3|Cooking
+2|Bob|Green|29|true|1|4|Theater
+2|Bob|Green|29|true|1|5|Long walks
+2|Bob|Green|29|true|1|6|Candlelit dinners
+3|William|Yellow|35|true|5|1|Dancing
+3|William|Yellow|35|true|5|2|Concerts
+3|William|Yellow|35|true|5|3|Cooking
+3|William|Yellow|35|true|5|4|Theater
+3|William|Yellow|35|true|5|5|Long walks
+3|William|Yellow|35|true|5|6|Candlelit dinners
+4|Tiffany|Brown|34|true|5|1|Dancing
+4|Tiffany|Brown|34|true|5|2|Concerts
+4|Tiffany|Brown|34|true|5|3|Cooking
+4|Tiffany|Brown|34|true|5|4|Theater
+4|Tiffany|Brown|34|true|5|5|Long walks
+4|Tiffany|Brown|34|true|5|6|Candlelit dinners
+6|Charlotte|Magenta|38|true|3|1|Dancing
+6|Charlotte|Magenta|38|true|3|2|Concerts
+6|Charlotte|Magenta|38|true|3|3|Cooking
+6|Charlotte|Magenta|38|true|3|4|Theater
+6|Charlotte|Magenta|38|true|3|5|Long walks
+6|Charlotte|Magenta|38|true|3|6|Candlelit dinners
+
+THAT WOULD NOT HAVE BEEN A GOOD IDEA FOR A BIG TABLE!
+
+sqlite> SELECT * FROM users LEFT OUTER JOIN interests ON users.interests_id = interests.id;
+2|Bob|Green|29|true|1|1|Dancing
+3|William|Yellow|35|true|5|5|Long walks
+4|Tiffany|Brown|34|true|5|5|Long walks
+6|Charlotte|Magenta|38|true|3|3|Cooking
+
+SAME RESULT AS NUMBER 3 FROM RELEASE 2
+
+sqlite> SELECT * FROM users INNER JOIN interests ON users.interests_id = interests.id;
+2|Bob|Green|29|true|1|1|Dancing
+3|William|Yellow|35|true|5|5|Long walks
+4|Tiffany|Brown|34|true|5|5|Long walks
+6|Charlotte|Magenta|38|true|3|3|Cooking
+
+SAME AGAIN!
+
