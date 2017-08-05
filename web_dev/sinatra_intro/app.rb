@@ -71,3 +71,15 @@ get '/adder/:num1/:num2' do
   num2 = params[:num2].to_i
   "#{num1} + #{num2} = #{num1 + num2}"
 end
+
+# Search the database for students from a certain campus
+
+get '/students_search/:campus' do
+  students = db.execute("SELECT * FROM students WHERE campus=?", [params[:campus]])
+  response = ""
+  students.each do |student|
+    response << "#{student['name']}<br>"
+  end
+  reponse
+end
+
